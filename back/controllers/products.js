@@ -1,11 +1,9 @@
-const QueryString = require("qs"); // Import the 'qs' library for query string parsing
 const Product = require("../models/product"); // Import the 'Product' model
-const { log } = require("console");
 
 // Define an asynchronous function to get all products
 const getAllProducts = async (req, res) => {
   // Destructure query parameters from the request object
-  const { featured, company, name, sort, fields } = req.query;
+  const { featured, company, name, sort, fields, numericFilters } = req.query;
 
   // Create an empty object to build the database query
   const queryObject = {};
@@ -23,6 +21,30 @@ const getAllProducts = async (req, res) => {
   // Check if 'name' query parameter exists and create a case-insensitive regex for it
   if (name) {
     queryObject.name = { $regex: name, $options: "i" };
+  }
+
+  if (numericFilters) {
+    const operatorMap = {
+      ">": "$gt",
+      ">=": "$gte",
+      "=": "$eq",
+      "<": "$lt",
+      "<=": "$lte",
+    };
+    const regEx = /\b(<|>| >= | = | < |<= )\b/g;
+    let filters = numericFilters.replace(
+      regEx,
+      (match) => `-${operatorMap[match]}-`
+    );
+    const options = ["price", "rating"];
+    filters = filters.split(",").forEach((item) => {
+      const [field, operator, value] = item.split("-");
+      if (options.includes(field)) {
+        queryObject[field] = { [operator]: Number(value) };
+      }
+    });
+
+    console.log(queryObject);
   }
 
   // Start the database query with the basic queryObject
@@ -56,5 +78,20 @@ const getAllProducts = async (req, res) => {
   res.status(200).json({ products, nbHits: products.length });
 };
 
+const getProduct = async (req, res) => {
+  const { id: productID } = req.params;
+
+  const product = await Product.findOne({ _id: productID });
+
+  if (!product) {
+    res.status(404).json({
+      msg: `no product with id: ${productID}...`,
+      productID: productID,
+    });
+  }
+
+  res.status(200).json(product);
+};
+
 // Export the 'getAllProducts' function for use in other parts of the application
-module.exports = { getAllProducts };
+module.exports = { getAllProducts, getProduct };

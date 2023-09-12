@@ -1,0 +1,28 @@
+$backgroundNavColor: #131921;
+$highContrastText: #ffffff;
+.nav {
+  background-color: $backgroundNavColor;
+  color: $highContrastText;
+
+  .dropdown-toggle {
+    color: #ffffff;
+  }
+  .dropdown-menu {
+    padding: 0;
+    div:last-child {
+      border: 0;
+    }
+  }
+
+  &__items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    width: 3em;
+    border-radius: 50%;
+    border: 1px solid #ffffff;
+  }
+}

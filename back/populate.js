@@ -35,5 +35,3 @@ const start = async () => {
 
 // Call the 'start' function to execute the database cleaning and population process
 start();
-
-start();
