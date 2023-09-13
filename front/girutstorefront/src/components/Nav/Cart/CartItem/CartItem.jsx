@@ -15,6 +15,21 @@ export default function CartItem({ _id, name, price, quantity }) {
     try {
       const url = `http://localhost:5000/api/cart/${_id}`;
       const response = await axios.delete(url);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleChange = async (number) => {
+    console.log("there is a change", number);
+    try {
+      const url = `http://localhost:5000/api/cart/${_id}`;
+      const body = {
+        quantity: number,
+      };
+      const response = await axios.patch(url, body);
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -33,9 +48,9 @@ export default function CartItem({ _id, name, price, quantity }) {
           size="sm"
           title={itemQuantity}
         >
-          {numbers.map((number) => {
+          {numbers.map((number, i) => {
             return (
-              <DropdownItem onClick={() => setItemQuantity(number)}>
+              <DropdownItem key={i * 3} onClick={() => handleChange(number)}>
                 {number}
               </DropdownItem>
             );

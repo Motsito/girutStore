@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SliderMM from "../../singlecomponents/SliderMM";
 import "./Filters.scss";
 import RadioElement from "../../singlecomponents/RadioElement";
