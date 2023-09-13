@@ -6,28 +6,22 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: [true, "Product name must be provided"], // Define a required field with an error message
   },
-  price: {
-    type: Number,
-    required: [true, "Product price must be provided"], // Define a required field with an error message
-  },
-  featured: {
-    type: Boolean,
-    default: false, // Set a default value for the 'featured' field
+  company: {
+    type: String,
+    required: true,
+    default: "MSI",
   },
   rating: {
     type: Number,
     default: 4.5, // Set a default value for the 'rating' field
   },
-  createdAt: {
-    type: Date,
-    default: Date.now(), // Set a default value for the 'createdAt' field to the current date and time
+  price: {
+    type: Number,
+    required: [true, "Product price must be provided"], // Define a required field with an error message
   },
-  company: {
+  img: {
     type: String,
-    enum: {
-      values: ["ikea", "liddy", "caressa", "marcos"], // Define an enumeration of allowed values
-      message: "{VALUE} is not supported", // Define a custom error message for invalid values
-    },
+    default: [true, "img must be provided"], // Set a default value for the 'featured' field
   },
 });
 

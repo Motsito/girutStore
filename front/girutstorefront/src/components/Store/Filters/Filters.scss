@@ -1,0 +1,25 @@
+.filters {
+  padding-top: 5px;
+  background-color: rgb(135, 132, 132);
+  color: black;
+  border-radius: 10px;
+  .sort {
+    display: flex;
+    justify-content: space-around;
+    &__name {
+    }
+    &__by {
+      display: flex;
+    }
+  }
+  .ranges {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3em;
+    &__price {
+    }
+    .rangeText {
+      margin-right: 1em;
+    }
+  }
+}

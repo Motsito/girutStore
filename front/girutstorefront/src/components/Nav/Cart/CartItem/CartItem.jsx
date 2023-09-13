@@ -4,11 +4,21 @@ import { Button, DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
-export default function CartItem({ name, price, quantity }) {
+export default function CartItem({ _id, name, price, quantity }) {
   const [itemQuantity, setItemQuantity] = useState(quantity);
-
   const numbers = [...Array(10).keys()];
+
+  const handleDelete = async () => {
+    console.log(_id);
+    try {
+      const url = `http://localhost:5000/api/cart/${_id}`;
+      const response = await axios.delete(url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="product">
@@ -32,7 +42,7 @@ export default function CartItem({ name, price, quantity }) {
           })}
         </DropdownButton>
 
-        <Button variant="danger" size="sm">
+        <Button onClick={() => handleDelete()} variant="danger" size="sm">
           <FontAwesomeIcon icon={faTrash} color="white" />
         </Button>
       </div>

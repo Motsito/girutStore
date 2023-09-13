@@ -5,6 +5,7 @@ require("express-async-errors"); // Middleware for handling asynchronous errors
 const express = require("express"); // Import Express.js
 const app = express(); // Create an instance of the Express application
 
+const cors = require("cors");
 const connectDB = require("./db/connect"); // Import the database connection function
 const productsRouter = require("./routes/products"); // Import the products router
 const cartRouter = require("./routes/cart");
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 //middlewares
+app.use(cors());
 app.use(express.json());
 
 // Routes related to products
@@ -34,7 +36,7 @@ app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
 // Configuration of the port on which the server will run
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // Function to start the server
 const start = async () => {

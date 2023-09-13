@@ -1,3 +1,8 @@
 .renderArea {
-  width: 40em;
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 1em;
+  overflow: scroll;
+  overflow-y: hidden;
 }

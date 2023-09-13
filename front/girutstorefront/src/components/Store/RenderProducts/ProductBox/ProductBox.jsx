@@ -1,14 +1,21 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import GlobalContext from "../../../../context/GlobalContext";
 import "./ProductBox.scss";
 
-export default function ProductBox({ firstProduct }) {
-  const { name, company, rating, price, img } = firstProduct;
+export default function ProductBox({ item }) {
+  const { setModal, setProduct } = useContext(GlobalContext);
+
+  const { name, company, img } = item;
+
+  const handleClick = () => {
+    setModal(true);
+    setProduct(item);
+  };
 
   return (
-    <a className="box" href="/product">
+    <button className="box" onClick={() => handleClick()}>
       <img className="box__img" src={img} alt={company} />
-      <div className="box__name">{name}</div>
-    </a>
+      <p className="box__name">{name}</p>
+    </button>
   );
 }

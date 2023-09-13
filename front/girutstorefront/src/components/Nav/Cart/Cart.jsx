@@ -1,12 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import React, { useContext } from "react";
 import { NavDropdown } from "react-bootstrap";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { itemSubtotalStyle } from "../../../helper/style";
 import getCartAmmount from "../../../functions/getCartAmmount";
 import CartItem from "./CartItem/CartItem.jsx";
+import GlobalContext from "../../../context/GlobalContext";
 
-export default function cart() {
+export default function Cart() {
+  const { currentCart, cartLoading } = useContext(GlobalContext);
+
   const cartArray = [
     { name: "coal", price: 5, quantity: 2 },
     { name: "stone", price: 10, quantity: 1 },
@@ -36,17 +39,22 @@ export default function cart() {
       >
         {`$${getCartAmmount(cartArray)}`}
       </NavDropdown.ItemText>
-      {cartArray.map((product, i) => {
-        const { name, price, quantity } = product;
-        return (
-          <CartItem
-            name={name}
-            price={price}
-            quantity={quantity}
-            key={`name ${price * quantity}`}
-          />
-        );
-      })}
+      {cartLoading ? (
+        currentCart.map((product, i) => {
+          const { _id, name, price, quantity } = product;
+          return (
+            <CartItem
+              _id={_id}
+              name={name}
+              price={price}
+              quantity={quantity}
+              key={`name ${price * quantity}`}
+            />
+          );
+        })
+      ) : (
+        <></>
+      )}
     </NavDropdown>
   );
 }

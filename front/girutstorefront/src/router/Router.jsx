@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "../App";
+import Main from "../components/Main.jsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App /> },
+  { path: "/", element: <Main /> },
   { path: "/product/:id", element: "tospecify" },
 ]);
 

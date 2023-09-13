@@ -3,8 +3,10 @@
   color: black;
   width: 12em;
   height: 12em;
-  border-radius: 10px;
-  text-decoration: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 
   &__name {
     white-space: nowrap;
@@ -12,10 +14,14 @@
     text-overflow: ellipsis;
     width: 10em;
     color: white;
+    display: flex;
+    margin-left: 1em;
   }
+
   &__img {
     margin: 0 auto;
-    width: 10em;
+    max-width: 10em;
     border-radius: 10px;
+    max-height: 8em;
   }
 }

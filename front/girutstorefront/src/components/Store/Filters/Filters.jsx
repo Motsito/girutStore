@@ -1,89 +1,60 @@
-import React, { useState } from "react";
-import { Slider, Box } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import SliderMM from "../../singlecomponents/SliderMM";
+import "./Filters.scss";
+import RadioElement from "../../singlecomponents/RadioElement";
 
-export default function Filters() {
-  const [nameFilter, setNameFilter] = useState(undefined);
-  const [value, setValue] = React.useState([20, 1000]);
+export default function Filters({
+  nameFilter,
+  setNameFilter,
+  radioValue,
+  setRadioValue,
+  priceRange,
+  setPriceRange,
+  starsRange,
+  setStarsRange,
+}) {
+  //
 
-  function valuetext(value) {
-    return `$${value}`;
-  }
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const [starsValue, setStarsValue] = React.useState([0, 5]);
-
-  function starsValuetext(value) {
-    return `$${value}`;
-  }
-
-  const handleStarsValueChange = (event, newValue) => {
-    setStarsValue(newValue);
-  };
-
-  const typesOfFilter = [
-    "featured",
-    "company",
-    "name",
-    "sort",
-    "fields",
-    "numericFilters",
-  ];
-
-  const checkState = () => {
-    console.log(nameFilter);
-  };
+  const radioProps = { radioValue, setRadioValue };
 
   return (
-    <div>
-      <div>
-        Name:
-        <input
-          value={nameFilter}
-          onChange={(e) => setNameFilter(e.target.value)}
-        ></input>
-        <button onClick={() => checkState()}>Search</button>
+    <div className="filters">
+      <div className="sort">
+        <div className="sort__name">
+          <span>Name: </span>
+          <input
+            value={nameFilter}
+            onChange={(e) => setNameFilter(e.target.value)}
+          ></input>
+        </div>
+
+        <div className="sort__by">
+          <span className="me-3">sort by:</span>
+          <div>
+            <RadioElement name="name" {...radioProps} />
+            <RadioElement name="price" {...radioProps} />
+            <RadioElement name="stars" {...radioProps} />
+          </div>
+        </div>
       </div>
 
-      <div style={{ display: "flex" }}>
-        Price Range
-        <Box sx={{ width: 200 }}>
-          <Slider
-            getAriaLabel={() => "Temperature range"}
-            value={value}
-            onChange={handleChange}
-            valueLabelDisplay="auto"
-            getAriaValueText={valuetext}
-            max={2000}
+      <div className="ranges">
+        <div className="ranges__price" style={{ display: "flex" }}>
+          <span className="rangeText">Price Range: </span>
+          <SliderMM
+            range={[100, 20000]}
+            value={priceRange}
+            setValue={setPriceRange}
           />
-        </Box>
-      </div>
+        </div>
 
-      <div style={{ display: "flex" }}>
-        Stars Range
-        <Box sx={{ width: 200 }}>
-          <Slider
-            getAriaLabel={() => "Temperature range"}
-            value={starsValue}
-            onChange={handleStarsValueChange}
-            valueLabelDisplay="auto"
-            getAriaValueText={starsValuetext}
-            max={5}
+        <div className="ranges__stars" style={{ display: "flex" }}>
+          <span className="rangeText">Stars Range: </span>
+          <SliderMM
+            range={[0, 5]}
+            value={starsRange}
+            setValue={setStarsRange}
           />
-        </Box>
-      </div>
-
-      <div>
-        sort by
-        <div>
-          name
-          <input type="radio" />
-          price
-          <input type="radio" />
-          stars
-          <input type="radio" />
         </div>
       </div>
     </div>

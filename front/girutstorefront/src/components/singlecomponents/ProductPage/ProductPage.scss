@@ -1,0 +1,104 @@
+.productPage {
+  height: auto;
+
+  &__img {
+    width: 70%;
+    border-radius: 7px;
+    margin: 0 auto;
+    padding: 1em 0;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__stats {
+    padding: 0.2em 0.7em;
+    border: 1px gray solid;
+    border-radius: 7px;
+    width: 80%;
+    margin: 0 auto;
+
+    .dualStat {
+      display: flex;
+      justify-content: space-between;
+      .rating {
+        display: flex;
+        gap: 4px;
+        font-size: 14px;
+      }
+      .company {
+        font-size: 12px;
+      }
+      p {
+        margin: 0;
+      }
+    }
+
+    .singleStat {
+      display: flex;
+      justify-content: end;
+    }
+
+    .price {
+      margin-top: 1em;
+    }
+  }
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  row-gap: 90%;
+  justify-content: space-between;
+  margin: 0em 2em;
+
+  .button {
+    border-radius: 5px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    background-color: white;
+    border-color: black !important;
+    height: 27px;
+  }
+  .counters {
+    display: flex;
+
+    .number {
+      background-color: white;
+      color: black;
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
+      width: 1.3em;
+      height: 27px;
+      text-align: center;
+    }
+  }
+
+  .counter:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .counter:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .productPage {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &__stats {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .button {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

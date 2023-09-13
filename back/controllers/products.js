@@ -54,7 +54,7 @@ const getAllProducts = async (req, res) => {
   if (sort) {
     result = result.sort(sort);
   } else {
-    result = result.sort("createAt");
+    result = result.sort("name");
   }
 
   // Select specific fields to include in the results based on the 'fields' query parameter
