@@ -1,0 +1,135 @@
+[
+  {
+    "name": "Sapphire Pulse AMD Radeon RX 6600",
+    "company": "Sapphire",
+    "rating": 4.7,
+    "price": 4099,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151362698861367407/61tMsH16pL.png?width=786&height=431"
+  },
+  {
+    "name": "VBESTLIFE Tarjeta Gráfica RX 580",
+    "company": "Vbestlife",
+    "rating": 4.4,
+    "price": 1599,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151362887714099261/41XFzGbYo1L.png"
+  },
+  {
+    "name": "XFX Speedster SWFT 210 Radeon RX 6600 Core",
+    "company": "XFX",
+    "rating": 4.7,
+    "price": 4413,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363013786468452/71gv2U3IPZL.png?width=411&height=462"
+  },
+  {
+    "name": "Gigabyte GV-N1030D4-2GL GeForce GT 1030",
+    "company": "GIGABYTE",
+    "rating": 4.6,
+    "price": 1549,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363109324345344/71G3lTXz5XL.png?width=516&height=462"
+  },
+  {
+    "name": "RTX 4060 Ti Ventus 2X Negro 8G OC",
+    "company": "MSI",
+    "rating": 4.6,
+    "price": 7599,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363221257732216/71ctFx4t8L.png?width=482&height=462"
+  },
+  {
+    "name": "Asus Dual GeForce RTX™ 3060 OC Edition 8GB GDDR6",
+    "company": "Asus",
+    "rating": 4.4,
+    "price": 6499,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363326354391170/71H-MgkgRZL.png?width=408&height=462"
+  },
+  {
+    "name": "GIGABYTE Tarjeta gráfica GeForce RTX 3060",
+    "company": "GIGABYTE",
+    "rating": 4.8,
+    "price": 6230,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363408223027250/715UuCH5OES.png?width=502&height=462"
+  },
+  {
+    "name": "Gigabyte Radeon RX 6400 D6 Tarjeta gráfica ",
+    "company": "GIGABYTE",
+    "rating": 4.7,
+    "price": 3885,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363529425821786/618drQgeHFL.png?width=503&height=462"
+  },
+  {
+    "name": "EVGA GeForce GT 730 2GB GDDR5 64bit DVI/HDMI/VGA ",
+    "company": "EVGA",
+    "rating": 4.4,
+    "price": 1243,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363616809955338/71R2VZbQmUL.png?width=463&height=462"
+  },
+  {
+    "name": "MSI GPU GEFORCE RTX 4060 Gaming X 8G",
+    "company": "MSI",
+    "rating": 4,
+    "price": 6415,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363718874140753/713u5D6eHdL.png?width=526&height=462"
+  },
+  {
+    "name": "Sapphire 11321-02-20G Pulse AMD Radeon RX 6700",
+    "company": "Sapphire",
+    "rating": 4.5,
+    "price": 6715,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363802944774175/81nLZPVmOdL.png?width=527&height=462"
+  },
+  {
+    "name": "MSI Gaming GeForce GTX 1650 128 bits HDMI/DP/DVI 4GB GDRR6",
+    "company": "MSI",
+    "rating": 4.8,
+    "price": 3440,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363891419426836/61sqCqD3TWL.png?width=466&height=462"
+  },
+  {
+    "name": "Gigabyte GV-N1030D4-2GL GeForce GT 1030 2GB GDDR4",
+    "company": "GIGABYTE",
+    "rating": 4.5,
+    "price": 1582,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151363974542139392/71AhXnclnkL.png?width=510&height=462"
+  },
+  {
+    "name": "XFX Speedster QICK319 Radeon RX 6750XT",
+    "company": "XFX",
+    "rating": 4.6,
+    "price": 756,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364050689740821/71701XsRrYL.png?width=419&height=462"
+  },
+  {
+    "name": "Asus TUF Gaming NVIDIA GeForce RTX™ 4070 OC",
+    "company": "Asus",
+    "rating": 4.8,
+    "price": 13555,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364117521768538/81LsVGoTBUL.png?width=457&height=462"
+  },
+  {
+    "name": "Gigabyte Tarjeta gráfica GeForce GTX 1650",
+    "company": "GIGABYTE",
+    "rating": 4.6,
+    "price": 2689,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364257259200512/71EQ9wdxiwL.png?width=598&height=462"
+  },
+  {
+    "name": "MSI Gaming Radeon RX 7600 128 bits 8GB GDDR6",
+    "company": "MSI",
+    "rating": 4.1,
+    "price": 5348,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364318592503808/718GiZA71YL.png?width=496&height=462"
+  },
+  {
+    "name": "Tarjeta Gráfica GDDR5 de 4 GB, Radeon HD 7670",
+    "company": "Diyeeni",
+    "rating": 3.0,
+    "price": 872,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364486545031249/61cOh5BS-CL.png?width=744&height=462"
+  },
+  {
+    "name": "Tarjeta Gráfica para Juegos, 8GB GDDR5, PCI Express 3.0",
+    "company": "Yoidesu",
+    "rating": 4.6,
+    "price": 1644,
+    "img": "https://media.discordapp.net/attachments/1150833479664275648/1151364575606870078/61RVLvNTxnL.png?width=640&height=462"
+  }
+]
