@@ -12,14 +12,3 @@ export default function ProductBox({ firstProduct }) {
     </a>
   );
 }
-
-//import ReactStars from "react-rating-stars-component";
-//working star
-// <ReactStars
-// count={5}
-// size={15}
-// activeColor="#ffd700"
-// value={4.5}
-// isHalf={true}
-// edit={false}
-// />
