@@ -5,7 +5,9 @@ const addProduct = async (req, res) => {
   const productObject = { name, price, quantity };
 
   const product = await Cart.create(productObject);
-  res.status(201).json(product);
+  res
+    .status(201)
+    .json({ msg: `product with name: ${name} added successfully`, product });
 };
 
 const getAllProducts = async (req, res) => {
