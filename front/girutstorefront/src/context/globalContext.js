@@ -5,6 +5,8 @@ const GlobalContext = createContext({
   modal: undefined,
   currentCart: undefined,
   cartLoading: undefined,
+  cartReRender: undefined,
+  setCartReRender: () => {},
   setCartLoading: () => {},
   setCurrentCart: () => {},
   setModal: () => {},

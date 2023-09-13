@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./CartItem.scss";
 import { Button, DropdownButton } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/esm/DropdownItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import GlobalContext from "../../../../context/GlobalContext";
 
 export default function CartItem({ _id, name, price, quantity }) {
   const [itemQuantity, setItemQuantity] = useState(quantity);
   const numbers = [...Array(10).keys()];
+
+  const { cartReRender, setCartReRender } = useContext(GlobalContext);
 
   const handleDelete = async () => {
     console.log(_id);
@@ -16,6 +19,7 @@ export default function CartItem({ _id, name, price, quantity }) {
       const url = `http://localhost:5000/api/cart/${_id}`;
       const response = await axios.delete(url);
       console.log(response);
+      setCartReRender(!cartReRender);
     } catch (error) {
       console.log(error);
     }
@@ -30,6 +34,7 @@ export default function CartItem({ _id, name, price, quantity }) {
       };
       const response = await axios.patch(url, body);
       console.log(response);
+      setCartReRender(!cartReRender);
     } catch (error) {
       console.log(error);
     }

@@ -8,6 +8,7 @@ export default function App() {
   const [modal, setModal] = useState(false);
   const [currentCart, setCurrentCart] = useState(null);
   const [cartLoading, setCartLoading] = useState(false);
+  const [cartReRender, setCartReRender] = useState(false);
 
   useEffect(() => {
     const getCartData = async () => {
@@ -24,11 +25,20 @@ export default function App() {
     };
 
     getCartData();
-  }, [modal]);
+  }, [modal, cartReRender]);
 
   return (
     <GlobalContext.Provider
-      value={{ product, setProduct, modal, setModal, currentCart, cartLoading }}
+      value={{
+        product,
+        setProduct,
+        modal,
+        setModal,
+        currentCart,
+        cartLoading,
+        cartReRender,
+        setCartReRender,
+      }}
     >
       <Router />
     </GlobalContext.Provider>

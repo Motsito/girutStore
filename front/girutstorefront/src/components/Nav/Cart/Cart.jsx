@@ -11,18 +11,16 @@ import axios from "axios";
 export default function Cart() {
   const { currentCart, cartLoading } = useContext(GlobalContext);
 
-  const cartArray = [
-    { name: "coal", price: 5, quantity: 2 },
-    { name: "stone", price: 10, quantity: 1 },
-  ];
+  const { cartReRender, setCartReRender } = useContext(GlobalContext);
 
   const handleEmptyCart = async () => {
     try {
       const url = "http://localhost:5000/api/cart/";
       const response = await axios.delete(url);
       console.log(response);
+      setCartReRender(!cartReRender);
     } catch (error) {
-      console.log();
+      console.log(error);
     }
   };
 
