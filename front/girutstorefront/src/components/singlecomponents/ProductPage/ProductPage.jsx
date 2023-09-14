@@ -6,20 +6,22 @@ import "./ProductPage.scss";
 import GlobalContext from "../../../context/GlobalContext";
 import axios from "axios";
 
-function Example({ data }) {
+function ProductPage({ data }) {
+  // Context and state setup
   const { modal, setModal } = useContext(GlobalContext);
   const [show, setShow] = useState(false);
 
+  // Close the modal
   const handleClose = () => {
     setShow(false);
     setModal(false);
   };
 
+  // Counter state for product quantity
   const [counter, setCounter] = useState(1);
   const { name, company, img, rating, price } = data;
 
-  //console.log(data._id);
-
+  // Handle adding the product to the cart
   const handleAddToCart = async () => {
     try {
       const url = `http://localhost:5000/api/cart`;
@@ -32,6 +34,7 @@ function Example({ data }) {
     handleClose();
   };
 
+  // Show the modal when 'modal' state changes
   useEffect(() => {
     if (!show) {
       setShow(true);
@@ -40,6 +43,7 @@ function Example({ data }) {
 
   return (
     <>
+      {/* Modal for displaying product details */}
       <Modal className="productPage" show={show} onHide={handleClose}>
         <Modal.Body className="__stats">
           <div className="productPage">
@@ -51,6 +55,7 @@ function Example({ data }) {
 
               <div className="dualStat">
                 <p className="rating">
+                  {/* Display star rating */}
                   <Stars value={rating} />
                   {rating}
                 </p>
@@ -65,6 +70,7 @@ function Example({ data }) {
 
         <Modal.Footer className="bottom">
           <div className="counters">
+            {/* Decrease product quantity */}
             <button
               className="button counter"
               onClick={() => decrease(setCounter)}
@@ -72,8 +78,10 @@ function Example({ data }) {
               -
             </button>
 
+            {/* Display the selected quantity */}
             <div className="number">{counter}</div>
 
+            {/* Increase product quantity */}
             <button
               className="button counter"
               onClick={() => increase(setCounter)}
@@ -82,6 +90,7 @@ function Example({ data }) {
             </button>
           </div>
 
+          {/* Add the product to the cart */}
           <button onClick={() => handleAddToCart()} className="button">
             Add to cart
           </button>
@@ -91,4 +100,4 @@ function Example({ data }) {
   );
 }
 
-export default Example;
+export default ProductPage;

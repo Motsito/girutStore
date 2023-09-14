@@ -1,19 +1,18 @@
 .box {
-  background-color: black;
-  color: black;
   width: 12em;
   height: 12em;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: end;
+  border: transparent;
 
   &__name {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 10em;
-    color: white;
+    color: black;
     display: flex;
     margin-left: 1em;
   }

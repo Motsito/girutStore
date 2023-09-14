@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Store.scss";
-// import ProductPage from "./ProductPage/ProductPage";
 import Filters from "./Filters/Filters";
 import RenderProducts from "./RenderProducts/RenderProducts";
 
 export default function Store() {
+  // State variables for filters
   const [nameFilter, setNameFilter] = useState("");
   const [radioValue, setRadioValue] = useState("name");
   const [priceRange, setPriceRange] = useState([100, 20000]);
   const [starsRange, setStarsRange] = useState([0, 5]);
 
+  // Props object to pass filter state and setters to child components
   const filterProps = {
     nameFilter,
     setNameFilter,
@@ -22,12 +23,15 @@ export default function Store() {
     setStarsRange,
   };
 
+  // State variables for pagination
   const [page, setPage] = useState(1);
   const [url, setUrl] = useState("http://localhost:5000/api/products");
 
+  // State variables for storing product data and loading status
   const [listOfProducts, setListOfProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch product data from the server when the URL changes
   useEffect(() => {
     const getProductList = async () => {
       try {
@@ -43,6 +47,7 @@ export default function Store() {
     getProductList();
   }, [url]);
 
+  // Update the URL for fetching data when filter parameters change
   useEffect(() => {
     let nameFilterText = "";
     let radioFilterText = "";
@@ -50,14 +55,14 @@ export default function Store() {
     let priceRangeFilterText = "";
     let starsRangeFilterText = "";
 
-    //namefilter
+    // Name filter
     if (nameFilter !== "") {
       nameFilterText = `&name=${nameFilter}`;
     } else {
       nameFilterText = "";
     }
 
-    //pagination
+    // Pagination
     if (page !== 1) {
       pageFilterText = "page=2";
       console.log("page is 2");
@@ -77,7 +82,7 @@ export default function Store() {
   return (
     <div className="storeArea">
       <div>
-        <Filters {...filterProps} />
+        <Filters {...filterProps} /> {/* Render filters and pass filterProps */}
       </div>
 
       <div>
@@ -89,9 +94,10 @@ export default function Store() {
       </div>
 
       <div className="pagination">
-        <button onClick={() => setPage(1)}>1</button>
-
-        <button onClick={() => setPage(2)}>2</button>
+        <button onClick={() => setPage(1)}>1</button>{" "}
+        {/* Pagination button for page 1 */}
+        <button onClick={() => setPage(2)}>2</button>{" "}
+        {/* Pagination button for page 2 */}
       </div>
     </div>
   );

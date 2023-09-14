@@ -9,15 +9,17 @@ import GlobalContext from "../../../context/GlobalContext";
 import axios from "axios";
 
 export default function Cart() {
-  const { currentCart, cartLoading } = useContext(GlobalContext);
+  // Access global context to get cart data and state variables
+  const { currentCart, cartLoading, cartReRender, setCartReRender } =
+    useContext(GlobalContext);
 
-  const { cartReRender, setCartReRender } = useContext(GlobalContext);
-
+  // Handle emptying the cart
   const handleEmptyCart = async () => {
     try {
       const url = "http://localhost:5000/api/cart/";
       const response = await axios.delete(url);
       console.log(response);
+      // Trigger a re-render by toggling the cartReRender state
       setCartReRender(!cartReRender);
     } catch (error) {
       console.log(error);
@@ -25,6 +27,7 @@ export default function Cart() {
   };
 
   return (
+    // Cart dropdown menu
     <NavDropdown
       title={
         <FontAwesomeIcon
@@ -34,10 +37,12 @@ export default function Cart() {
         />
       }
     >
+      {/* Subtotal section */}
       <NavDropdown.ItemText style={itemSubtotalStyle}>
         <h4>Subtotal</h4>
       </NavDropdown.ItemText>
 
+      {/* Display the subtotal */}
       <NavDropdown.ItemText
         style={{
           ...itemSubtotalStyle,
@@ -46,9 +51,10 @@ export default function Cart() {
           padding: "0.5em 0;",
         }}
       >
-        {`$${getCartAmmount(currentCart)}`}
+        {cartLoading ? `$${getCartAmmount(currentCart)}` : "waiting"}
       </NavDropdown.ItemText>
 
+      {/* Render cart items if available */}
       {cartLoading ? (
         currentCart.map((product, i) => {
           const { _id, name, price, quantity } = product;
@@ -65,6 +71,8 @@ export default function Cart() {
       ) : (
         <></>
       )}
+
+      {/* Empty Cart button */}
       <div style={{ ...itemSubtotalStyle, margin: "10px 10px" }}>
         <Button variant="danger" size="sm" onClick={() => handleEmptyCart()}>
           Empty Cart
